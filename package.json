@@ -20,7 +20,9 @@
   "homepage": "https://github.com/CaueCassio/Product-Hunter#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.10.2"
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.10.2",
+    "nvm": "0.0.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

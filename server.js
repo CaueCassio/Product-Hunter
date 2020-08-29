@@ -1,14 +1,13 @@
-const express = require ('express');
-const mongoose = require('mongoose');
-
+const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
 // Iniciando o Server
 const app = express();
 
 // Iniciando o BD
-mongoose.connect('mongodb://localhost:27017/')
+MongoClient.connect("mongodb://localhost:27017/nodeapi", {useUnifiedTopology: true})
 
 //Primeira rota
-app.get('/', (req,res)=>{
+app.get('/', (req, res) => {
     res.send("Tudo ok!")
 })
 
