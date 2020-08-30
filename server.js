@@ -1,26 +1,16 @@
 const express = require('express');
-
-const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
-const Product = mongoose.model('Product');
-
 // Agrupando Models
 const requireDir = require('require-dir');
-requireDir("./src/models");
+
 
 // Iniciando o Server
 const app = express();
 // Iniciando o BD
-mongoose.connect("mongodb://localhost:27017/nodeapi");
+mongoose.connect("mongodb://localhost:27017/nodeapi", { userNewParser: true });
+requireDir("./src/models");
 
-//Primeira rota
-app.get('/', (req, res) => {
-        Product.create({
-            title: "React Naterwerive",
-            description: "Build Nwerwerative apps witch React",
-            url: "http://github.com/fawerwercebook/react-native"
-        });
-        return res.send("Tudo ok!");
-})
+//Rotas
+app.use('/', require('./src/routes'))
 
-app.listen(3001);
+app.listen(3001);   
