@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 // Agrupando Models
 const requireDir = require('require-dir');
 
-
 // Iniciando o Server
 const app = express();
+app.use(express.json());
+
 // Iniciando o BD
 mongoose.connect("mongodb://localhost:27017/nodeapi", { userNewParser: true });
 requireDir("./src/models");
