@@ -1,11 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors')
+
 // Agrupando Models
 const requireDir = require('require-dir');
 
-// Iniciando o Server
+// Iniciando o App
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Iniciando o BD
 mongoose.connect("mongodb://localhost:27017/nodeapi", { userNewParser: true });
